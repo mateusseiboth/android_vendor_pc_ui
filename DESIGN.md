@@ -79,6 +79,24 @@ We follow the same split: `flags/` and `overlay/` here, code on branch `pc`.
 | Implemented | Framework overlay: night mode off by default, round icons and circular mask, radii, no all caps. Fonts: LineageOS already ships Google Sans Flex (OFL) through `FontGoogleSansFlexOverlay`, the closest open font |
 | Remains | A wallpaper of our own; `google-sans-text`/`-medium` font family aliases to Google Sans Flex in `fonts_customization.xml` (the variable label families fall back to them) |
 
+### 7. Screen capture and recording
+
+| | |
+|---|---|
+| Googlebook | SystemUI's large screen capture: the Quick Settings "Screen capture" tile opens a toolbar over the screen to take a screenshot or a recording of the whole screen or of one window, with device audio and microphone options; recording chip and stop popup in the status bar, post recording shelf. Flags `large_screen_screencapture`, `large_screen_recording`, `large_screen_sharing`, `new_screen_record_toolbar(_selfie)`; `config_enableLargeScreenScreencapture` from `product="desktop"`. Region recording (`large_screen_region_recording`) is off on Googlebook. `DesktopRecorderPrebuilt` is not a screen recorder: it is Google's Recorder app (`com.google.android.apps.recorder`, audio recording with transcription) |
+| Already in AOSP 17 | All of the above (SystemUI `screencapture/`, `screenrecord/`, `statusbar/quickactions/screenrecord`), and cp2a already enables those four flags. Region recording UI too (region box, "Record selected area"), but starting it did nothing: `PreCaptureViewModel.startRecording` mapped `PARTIAL` to a no-op, as no API crops a mirrored display |
+| Implemented | frameworks/base `capture`: "SystemUI: Record a region of the screen" (`cropRegion` in `ScreenRecordingParameters`; `ScreenMediaRecorder` draws through `RecordingSurfaces`: straight into the encoder, or `CroppedRecordingSurface`, a GL stage that mirrors the display into a SurfaceTexture and scales the region onto the encoder surface) and "SystemUI: Configurable folder for screen recordings" (`config_screenRecordingFolder`). Here: `large_screen_region_recording` enabled (`flags/.../screen_capture_flag_values.textproto`), `config_enableLargeScreenScreencapture` and `config_screenRecordingFolder` = `Movies/Screen recordings` in the SystemUI overlay. The `screenrecord` default tile is the capture entry |
+| Remains | Device check of region recordings (GL stage, encoder sizes of odd regions) |
+
+### 8. Lock screen clock styles
+
+| | |
+|---|---|
+| Googlebook | Seven clock plugins in `system_ext/priv-app/SystemUIClocks-*` (BigNum, Calligraphy, Growth, Inflate, Metro, NumOverlap, Weather), chosen in the wallpaper and style picker |
+| Already in AOSP 17 | The plugin mechanism: `ClockRegistry` knows these seven packages and their clock ids (`KNOWN_PLUGINS`, lazy loading), ThemePicker's `ClockRegistryProvider` allowlists them, `SystemUIClocks-CommonLib` and the sample plugin show how a plugin APK is built |
+| Implemented | `packages/apps/PcClocks` (new repo): seven APKs with those packages and ids, faces written anew with system fonts (Roboto Flex, Noto Serif, Google Sans Flex); see its `DESIGN.md`. Here: `pc_ui.mk` inherits `pc_clocks.mk`, and the SystemUI overlay adds the seven packages to `config_pluginAllowlist` (needed on `user` builds) |
+| Remains | Tuning each face's sizes on a device |
+
 ## Integration
 
 What the device tree and manifests need (not edited by this work):
@@ -87,14 +105,21 @@ What the device tree and manifests need (not edited by this work):
 
    ```xml
    <remove-project name="LineageOS/android_frameworks_base" />
-   <project path="frameworks/base" name="android_frameworks_base" remote="pc" revision="pc" />
+   <project path="frameworks/base" name="android_frameworks_base" remote="pc" revision="capture" />
    <remove-project name="LineageOS/android_packages_apps_Launcher3" />
    <project path="packages/apps/Launcher3" name="android_packages_apps_Launcher3" remote="pc" revision="pc" />
-   <project path="vendor/pc/ui" name="android_vendor_pc_ui" remote="pc" revision="pc" />
+   <project path="vendor/pc/ui" name="android_vendor_pc_ui" remote="pc" revision="capture" />
+   <project path="packages/apps/PcClocks" name="android_packages_apps_PcClocks" remote="pc" revision="lineage-24.0" />
    ```
 
+   The `capture` branches (screen capture, section 7) sit on top of `pc`; until they are merged,
+   build either both `capture` branches or both `pc` branches: the SystemUI overlay of `capture`
+   sets `config_screenRecordingFolder`, which only frameworks/base `capture` declares.
+
    Locally the branches already exist in the synced projects:
-   `git -C frameworks/base checkout pc` and `git -C packages/apps/Launcher3 checkout pc`.
+   `git -C frameworks/base checkout capture`, `git -C vendor/pc/ui checkout capture` and
+   `git -C packages/apps/Launcher3 checkout pc`; `packages/apps/PcClocks` is a local repository
+   (branch `lineage-24.0`) with no remote yet.
 2. `device/pc/pc_x86_64/lineage_pc_x86_64.mk`: `$(call inherit-product, vendor/pc/ui/pc_ui.mk)`
    (overlays, flag values, and `/product/etc/default-permissions/default-permissions-pc-ui.xml`).
 3. `device/pc/pc_x86_64/device.mk`: `PRODUCT_CHARACTERISTICS := desktop` (instead of `tablet`;
@@ -105,6 +130,11 @@ What the device tree and manifests need (not edited by this work):
 
 Verified on the host: overlay resource names against the tree, flag names against the tree's
 aconfig declarations, the release config (release-config lists the value set last in cp2a).
+Screen capture and clocks: the new Kotlin compiles against the tree's built framework,
+SystemUIPluginLib, SystemUIClocks-CommonLib and ICU jars (kotlinc, outside Soong); the plain
+logic tests (region geometry, recordings folder, clock model) run on the host. Not verified:
+Soong/R8 builds of the clock APKs, SystemUI's device tests, and recordings and faces on a device.
+
 Not verified without a build: compilation of the Launcher3, Shell, SystemUI and framework changes
 and their unit tests (`WMShellUnitTests`, `SystemUITests`, `WmTests`, `FrameworksCoreTests`;
 Launcher3's quickstep tests have no test module in AOSP), RRO compilation,

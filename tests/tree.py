@@ -88,14 +88,26 @@ def find_declared_resources(target):
 _PC_VALUE_RE = re.compile(r'<(bool|integer|dimen|color|string|fraction)\s+name="([^"]+)"')
 
 
+# Branches of the target projects that declare resources the overlays use: `pc` (desktop UI)
+# and `capture` (screen capture, on top of `pc`).
+PROJECT_BRANCHES = ("pc", "capture")
+
+
 def _read_pc_branch_value_names(base):
-    """Value names the project's `pc` branch declares under base, before it is checked out."""
+    """Value names PROJECT_BRANCHES declare under base, before they are checked out."""
+    names = set()
+    for branch in PROJECT_BRANCHES:
+        names |= _read_branch_value_names(base, branch)
+    return names
+
+
+def _read_branch_value_names(base, branch):
     git = ["git", "-C", str(base)]
-    found = subprocess.run(git + ["rev-parse", "--verify", "--quiet", "pc"],
+    found = subprocess.run(git + ["rev-parse", "--verify", "--quiet", branch],
                            capture_output=True)
     if found.returncode != 0:
         return set()
-    listing = subprocess.run(git + ["grep", "-h", "-E", _PC_VALUE_RE.pattern, "pc", "--", "."],
+    listing = subprocess.run(git + ["grep", "-h", "-E", _PC_VALUE_RE.pattern, branch, "--", "."],
                              capture_output=True, text=True)
     return set(_PC_VALUE_RE.findall(listing.stdout))
 
