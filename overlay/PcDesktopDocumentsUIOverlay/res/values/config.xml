@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="trusted_quick_viewer_package" translatable="false">org.lineageos.pcviewer</string>
+</resources>

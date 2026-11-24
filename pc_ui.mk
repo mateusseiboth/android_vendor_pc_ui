@@ -6,6 +6,7 @@ PC_UI_DIR := vendor/pc/ui
 
 # Runtime resource overlays (overlay/).
 PRODUCT_PACKAGES += \
+    PcDesktopDocumentsUIOverlay \
     PcDesktopFrameworkOverlay \
     PcDesktopLauncherOverlay \
     PcDesktopSettingsProviderOverlay \

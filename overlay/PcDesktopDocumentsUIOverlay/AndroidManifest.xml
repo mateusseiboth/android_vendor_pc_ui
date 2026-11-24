@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Files opens documents in PcViewer with the folder's other files (quick view), as on Googlebook. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.lineageos.pc.overlay.desktop.documentsui">
+
+    <overlay
+        android:isStatic="true"
+        android:priority="400"
+        android:targetPackage="com.android.documentsui" />
+</manifest>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PcViewer edits shared images (the share sheet's "Edit" button), as Googlebook's Viewer does. -->
+<resources>
+    <string name="config_preferredSystemImageEditor" translatable="false">org.lineageos.pcviewer/org.lineageos.pcviewer.MainActivity</string>
+</resources>

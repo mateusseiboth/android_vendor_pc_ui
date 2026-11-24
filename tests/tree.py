@@ -26,6 +26,7 @@ TARGET_RES_DIRS = {
         "packages/apps/Launcher3/quickstep/res",
     ],
     "com.android.providers.settings": ["frameworks/base/packages/SettingsProvider/res"],
+    "com.android.documentsui": ["packages/apps/DocumentsUI/res"],
 }
 
 VALUE_TAGS = {"bool", "integer", "dimen", "color", "string", "fraction", "array",
