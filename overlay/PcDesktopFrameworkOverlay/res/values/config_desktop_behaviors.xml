@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Googlebook desktop behaviors that this tree's aconfig flags cannot turn on: our own configs on
+     branch flags2 of frameworks/base (system_server), see DESIGN.md. -->
+<resources>
+    <!-- Meta+Shift+[ and Meta+Shift+] move the focused window to the previous or next desk. -->
+    <bool name="config_keyboardShortcutMovesFocusedWindowToDesk">true</bool>
+
+    <!-- The pointer resting at the top or bottom edge of a fullscreen app reveals the header and
+         status bar or the taskbar after this many milliseconds (AOSP: 500). -->
+    <integer name="config_mouseEdgeRevealDelayMs">200</integer>
+</resources>

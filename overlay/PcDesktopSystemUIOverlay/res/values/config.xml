@@ -23,7 +23,7 @@
     <bool name="config_useBrightnessMirrorInOverlay">false</bool>
     <bool name="config_endSideBrightnessDialog">true</bool>
     <bool name="config_enableDesktopAudioTileDetailsView">true</bool>
-    <string name="quick_settings_tiles_default" translatable="false">internet,bt,cast,screenrecord,dnd,mictoggle,cameratoggle,dark,rotation</string>
+    <string name="quick_settings_tiles_default" translatable="false">internet,bt,cast,screenrecord,dnd,mictoggle,cameratoggle,dark,ime,rotation</string>
 
     <!-- A desktop: mouse and keyboard input, no blurred wallpaper, opaque power menu. -->
     <bool name="config_isDesktopForFalsingPurposes">true</bool>
