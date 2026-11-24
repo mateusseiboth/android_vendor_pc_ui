@@ -107,6 +107,7 @@ DECLARATION_DIRS = [
     "frameworks/base/libs/WindowManager/Shell/aconfig",
     "frameworks/base/packages/SystemUI/aconfig",
     "packages/apps/Launcher3/aconfig",
+    "frameworks/base/core/java/android/companion",
 ]
 
 

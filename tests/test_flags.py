@@ -16,6 +16,8 @@ GOOGLEBOOK_DESKTOP_FLAGS = [
     "com.android.systemui.status_bar_for_desktop",
     "com.android.systemui.desktop_sizing",
     "com.android.launcher3.enable_taskbar_customization",
+    # Handoff: remote tasks of the user's other devices as taskbar suggestions.
+    "android.companion.task_continuity",
 ]
 
 

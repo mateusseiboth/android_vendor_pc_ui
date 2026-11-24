@@ -1,0 +1,9 @@
+# Task continuity (handoff): the TaskContinuityManager API and service that the taskbar's handoff
+# suggestions use. Enabled by cp2a today; pinned here so the taskbar feature does not depend on it.
+
+flag_value {
+  package: "android.companion"
+  name: "task_continuity"
+  state: ENABLED
+  permission: READ_ONLY
+}
