@@ -1,0 +1,18 @@
+# Flags of frameworks/libs/systemui (shared by SystemUI and Launcher3) that Googlebook (lapis,
+# Android 17) ships enabled, cp2a leaves disabled, and that change the desktop.
+
+# The taskbar's recent apps section shows the recently used apps, not hybrid predictions.
+flag_value {
+  package: "com.android.systemui.shared"
+  name: "enable_recents_in_taskbar"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+# Home screen settings offer hiding the icon labels of the home screen.
+flag_value {
+  package: "com.android.systemui.shared"
+  name: "workspace_items_label_hidden"
+  state: ENABLED
+  permission: READ_ONLY
+}

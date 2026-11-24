@@ -18,6 +18,9 @@ GOOGLEBOOK_DESKTOP_FLAGS = [
     "com.android.launcher3.enable_taskbar_customization",
     # Handoff: remote tasks of the user's other devices as taskbar suggestions.
     "android.companion.task_continuity",
+    # Declared in frameworks/libs/systemui, not in frameworks/base.
+    "com.android.systemui.shared.enable_recents_in_taskbar",
+    "com.android.systemui.shared.workspace_items_label_hidden",
 ]
 
 
