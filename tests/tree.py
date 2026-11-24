@@ -3,6 +3,7 @@
 import functools
 import os
 import re
+import subprocess
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -80,7 +81,23 @@ def find_declared_resources(target):
             kind = res_file.parent.name.split("-")[0]
             if kind != "values":
                 declared.add((kind, res_file.name.split(".")[0]))
+        declared |= _read_pc_branch_value_names(base)
     return frozenset(declared)
+
+
+_PC_VALUE_RE = re.compile(r'<(bool|integer|dimen|color|string|fraction)\s+name="([^"]+)"')
+
+
+def _read_pc_branch_value_names(base):
+    """Value names the project's `pc` branch declares under base, before it is checked out."""
+    git = ["git", "-C", str(base)]
+    found = subprocess.run(git + ["rev-parse", "--verify", "--quiet", "pc"],
+                           capture_output=True)
+    if found.returncode != 0:
+        return set()
+    listing = subprocess.run(git + ["grep", "-h", "-E", _PC_VALUE_RE.pattern, "pc", "--", "."],
+                             capture_output=True, text=True)
+    return set(_PC_VALUE_RE.findall(listing.stdout))
 
 
 def _read_value_names(xml):

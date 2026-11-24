@@ -31,6 +31,10 @@
     <bool name="config_supportBlurredWallpaper">false</bool>
     <bool name="config_translucentStandalonePowerMenu">false</bool>
 
+    <!-- Window header theme (light or dark) from the topmost opaque activity, not from a
+         translucent one on top (pc branch of frameworks/base). -->
+    <bool name="config_windowDecorThemeFromTopOpaqueBackground">true</bool>
+
     <!-- Lock screen of a desktop. -->
     <bool name="config_improveLargeScreenInteractionOnLockscreen">true</bool>
     <bool name="config_disableNotificationShelfOnKeyguard">true</bool>

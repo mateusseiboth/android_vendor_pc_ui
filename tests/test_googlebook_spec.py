@@ -31,6 +31,8 @@ SYSTEMUI_SPEC = {
     ("dimen", "desktop_mode_header_window_control_button_height_large"): "32dp",
     ("dimen", "desktop_mode_header_window_control_button_padding_large"): "6dp",
     ("dimen", "freeform_edge_handle_outset"): "8dp",
+    # pc branch of frameworks/base: header theme from the topmost opaque activity.
+    ("bool", "config_windowDecorThemeFromTopOpaqueBackground"): "true",
 }
 
 LAUNCHER_SPEC = {
