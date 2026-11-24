@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Googlebook desktop behaviors that this tree's aconfig flags cannot turn on: our own configs on
+     branch flags2 of frameworks/base (WM Shell and SystemUI resources), see DESIGN.md. -->
+<resources>
+    <!-- Window headers. -->
+    <bool name="config_disableDesktopFullImmersive">true</bool>
+    <bool name="config_keepCustomHeaderInFullscreen">true</bool>
+    <bool name="config_windowHeaderFollowsTaskDescription">true</bool>
+    <bool name="config_animateFullscreenHeader">true</bool>
+    <bool name="config_showFullscreenHeaderInSplitScreen">true</bool>
+    <bool name="config_fullscreenHeaderFollowsStatusBarHover">true</bool>
+
+    <!-- Desks, focus and the desktop scrim. -->
+    <bool name="config_minimizeDesktopWindowOnBackClose">true</bool>
+    <bool name="config_excludeTiledBoundsFromRememberedBounds">true</bool>
+    <bool name="config_focusHomeWhilePeeking">true</bool>
+    <bool name="config_preserveDesktopZOrderOnExit">true</bool>
+    <bool name="config_keepEmptyDeskActiveShowingHome">true</bool>
+    <bool name="config_restoreTilingOnUnminimize">true</bool>
+    <bool name="config_desktopAltTabOrdersByLastFocus">true</bool>
+    <bool name="config_desktopSnapshotOnFocusLoss">true</bool>
+    <bool name="config_desktopScrimFollowsStableInsets">true</bool>
+    <bool name="config_desktopScrimTracksTransitions">true</bool>
+
+    <!-- Status bar, launcher panels and notifications. -->
+    <bool name="config_collapsePanelsClosesQuickActions">true</bool>
+    <bool name="config_statusBarTapClosesLauncherPanels">true</bool>
+    <bool name="config_statusBarMediaChipShowsTitle">true</bool>
+    <bool name="config_desktopHeadsUpAppearance">true</bool>
+    <bool name="config_notificationDismissButtonAccessible">true</bool>
+    <bool name="config_scrollShadeOnBottomNotificationExpand">true</bool>
+
+    <!-- Quick settings, keyboard and dialogs. The input method tile can be added in edit mode. -->
+    <bool name="config_materialFocusRings">true</bool>
+    <string name="config_quickSettingsExtraStockTiles" translatable="false">ime</string>
+    <bool name="config_qsEditModeImmediateMouseDrag">true</bool>
+    <bool name="config_shortcutHelperAsDialog">true</bool>
+    <bool name="config_volumeDialogHorizontalWithoutButtons">true</bool>
+</resources>

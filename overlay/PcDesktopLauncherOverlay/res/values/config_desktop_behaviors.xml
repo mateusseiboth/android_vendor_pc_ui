@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Googlebook desktop behaviors that this tree's aconfig flags cannot turn on: our own configs on
+     branch flags2 of packages/apps/Launcher3, see DESIGN.md. -->
+<resources>
+    <bool name="config_taskbarClickClosesQuickActions">true</bool>
+    <bool name="config_taskbarStashesOnlyForDialogsThatAsk">true</bool>
+    <bool name="config_settingsHidesUpArrowOnTaskRoot">true</bool>
+</resources>

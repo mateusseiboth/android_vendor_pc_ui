@@ -88,9 +88,9 @@ def find_declared_resources(target):
 _PC_VALUE_RE = re.compile(r'<(bool|integer|dimen|color|string|fraction)\s+name="([^"]+)"')
 
 
-# Branches of the target projects that declare resources the overlays use: `pc` (desktop UI)
-# and `capture` (screen capture, on top of `pc`).
-PROJECT_BRANCHES = ("pc", "capture")
+# Branches of the target projects that declare resources the overlays use: `pc` (desktop UI),
+# `capture` (screen capture) and `flags2` (Googlebook's desktop behaviors), all on top of `pc`.
+PROJECT_BRANCHES = ("pc", "capture", "flags2")
 
 
 def _read_pc_branch_value_names(base):
@@ -110,6 +110,43 @@ def _read_branch_value_names(base, branch):
     listing = subprocess.run(git + ["grep", "-h", "-E", _PC_VALUE_RE.pattern, branch, "--", "."],
                              capture_output=True, text=True)
     return set(_PC_VALUE_RE.findall(listing.stdout))
+
+
+# Branch and file names of the configs that switch on Googlebook's desktop behaviors (flags2),
+# and the kinds of value that switch one on (arrays there are optional allowlists).
+BEHAVIOR_BRANCH = "flags2"
+BEHAVIOR_CONFIG_GLOB = "config_pc_*.xml"
+BEHAVIOR_SWITCH_TAGS = {"bool", "integer", "string"}
+
+
+def read_behavior_configs():
+    """(target, type, name, default) of every value in BEHAVIOR_BRANCH's config_pc_*.xml files."""
+    configs = []
+    for target, res_dirs in TARGET_RES_DIRS.items():
+        for res_dir in res_dirs:
+            for text in _read_branch_files(TOP / res_dir, BEHAVIOR_BRANCH, "values"):
+                configs += [(target, kind, name, default)
+                            for kind, name, default in _read_value_elements(text)]
+    return configs
+
+
+def _read_branch_files(base, branch, folder):
+    """Texts of the BEHAVIOR_CONFIG_GLOB files in folder of base on branch."""
+    git = ["git", "-C", str(base)]
+    if not base.is_dir():
+        return []
+    listing = subprocess.run(git + ["ls-tree", "--name-only", branch, f"{folder}/"],
+                             capture_output=True, text=True)
+    paths = [path for path in listing.stdout.split()
+             if Path(path).match(BEHAVIOR_CONFIG_GLOB)]
+    return [subprocess.run(git + ["show", f"{branch}:./{path}"], capture_output=True,
+                           text=True).stdout for path in paths]
+
+
+def _read_value_elements(text):
+    """(type, name, value text) of the switch values (BEHAVIOR_SWITCH_TAGS) of a values XML text."""
+    return [(element.tag, element.get("name"), (element.text or "").strip())
+            for element in ET.fromstring(text) if element.tag in BEHAVIOR_SWITCH_TAGS]
 
 
 def _read_value_names(xml):
@@ -138,6 +175,7 @@ DECLARATION_DIRS = [
     "packages/apps/Launcher3/aconfig",
     "frameworks/base/core/java/android/companion",
     "frameworks/base/core/java/android/content/pm",
+    "frameworks/libs/systemui/aconfig",
 ]
 
 

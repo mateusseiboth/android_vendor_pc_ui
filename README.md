@@ -4,7 +4,9 @@ Desktop UI of LineageOS for PCs: Googlebook-like desktop windowing, taskbar, sta
 settings, notifications and window headers, on top of LineageOS 24.0 (Android 17).
 
 This repository holds the product level pieces. Code changes live on branch `pc` of
-`frameworks/base` (WM Shell) and `packages/apps/Launcher3`. `DESIGN.md` maps every Googlebook
+`frameworks/base` (WM Shell) and `packages/apps/Launcher3`; Googlebook's desktop behaviors that no
+flag of this tree can turn on are written anew on branch `flags2` of both, each behind its own config
+that the overlays here switch on. `DESIGN.md` maps every Googlebook
 element to what implements it and what is still missing.
 
 ## Layout
@@ -18,6 +20,7 @@ element to what implements it and what is still missing.
 | `overlay/PcDesktopFrameworkOverlay` | `android`: desktop windowing on the internal display, 40dp headers, 36dp status bar, radii, icon mask, shade panel colors, letterbox, laptop power keys |
 | `overlay/PcDesktopSystemUIOverlay` | `com.android.systemui`: desktop status bar, shade popups at the top end, quick settings, window header button sizes (WM Shell resources live in SystemUI), screen capture (toolbar, recordings folder), clock plugin allowlist |
 | `overlay/PcDesktopLauncherOverlay` | `com.android.launcher3`: desktop form factor, blur, popups |
+| `overlay/*/res/values/config_desktop_behaviors.xml` | Switch on the desktop behaviors of the `flags2` branches (one config each, listed in `DESIGN.md`) |
 | `overlay/PcDesktopSettingsProviderOverlay` | `com.android.providers.settings`: desktop defaults |
 | `flags/` | aconfig values Googlebook ships enabled, contributed to the `cp2a` release config |
 | `permissions/` | Default runtime permissions (SystemUI reads the calendar for the status bar calendar) |
@@ -31,9 +34,10 @@ In the device's product makefile:
 $(call inherit-product, vendor/pc/ui/pc_ui.mk)
 ```
 
-and build with the `pc` branch of `packages/apps/Launcher3` and the `capture` branch of
-`frameworks/base` (screen capture, on top of `pc`), plus `packages/apps/PcClocks` (see
-`DESIGN.md`, "Integration").
+and build with the `pc` branches of `frameworks/base` and `packages/apps/Launcher3`, which hold the
+screen capture (`capture`), login (`login`) and desktop behavior (`flags2`) work, plus
+`packages/apps/PcClocks` and `packages/apps/PcLogin` (see `DESIGN.md`, "Integration"). The
+overlays here set configs that only those branches declare.
 
 ## Login screen
 
@@ -73,7 +77,9 @@ cd vendor/pc/ui/tests && python3 -m unittest
 ```
 
 They check that every overlaid resource exists in its target package (also when it is declared
-only on the project's `pc` branch, before that branch is checked out), that every flag value
+only on the project's `pc` or `flags2` branch, before that branch is checked out), that every config
+the `flags2` branches add is switched on by an overlay, that no Googlebook flag is left unclassified
+or undone, that every flag value
 names a flag declared in the tree, that the release config wiring is in place, and that the
 overlays carry Googlebook's values. `ANDROID_BUILD_TOP` points at the tree (default: three
 folders up).
