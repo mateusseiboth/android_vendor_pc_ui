@@ -74,6 +74,12 @@ class LoginProductTest(unittest.TestCase):
         self.assertIn(LOGIN_ACTIVITY, allowed)
         self.assertIn("com.android.settings/.FallbackHome", allowed)
 
+    def test_tray_offers_switch_user_and_sign_out(self):
+        actions = read_array("config_globalActionsList")
+        self.assertIn("switch_user", actions)
+        self.assertIn("logout", actions)
+        self.assertIn("lock", actions)
+
     def test_allowlist_holds_component_names(self):
         for component in read_array("hsu_allowlist_activities"):
             with self.subTest(component=component):
