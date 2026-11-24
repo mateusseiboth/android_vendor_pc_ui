@@ -1,0 +1,275 @@
+# Flags Googlebook (lapis, Android 17) ships enabled that cp2a leaves disabled.
+# Source: the system and system_ext aconfig storage of the Googlebook image.
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "activity_start_interceptor_speedbumps"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "add_bg_color_for_transparent_bubbles"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "appheader_launch_color_bugfix"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "camera_compat_ignore_requested_orientation_allowed"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "camera_compat_update_treatment_on_rotation"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "consolidate_remove_starting_window_from_task"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "desktop_minimize_last_task_bugfix"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_add_window_decoration_to_all_tasks"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_consolidated_window_options"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_desktop_taskbar_in_fullscreen_mode"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_focus_reset_on_display_removal"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_freeform_box_shadows_v2"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_fullscreen_in_new_task_preference"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_fullscreen_window_controls"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_game_controls_handle_menu_entry"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_home_screen_peeking"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_input_dispatcher_long_method_tracing"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_no_resize_cursor"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_open_by_default_dialog_focus_bugfix"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_overflow_button_for_taskbar_pinned_items"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_split_dismiss_animation_v2"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "enable_stepped_cascading"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "filter_events_from_irrelevant_devices_in_drag_move_resize"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "fix_multi_window_task_focus_change"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "improve_fluid_resizing_performance"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "launch_games_in_fullscreen_by_allowlist"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "only_cache_low_res_task_snapshot"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "perfect_edge"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "prioritize_visible_task_display_over_source"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "reduce_window_traversal_on_entering"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "remove_starting_window_when_commit_invisible"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "report_missed_enter_anim_on_resume"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "return_windowless_root_views_in_wmglobal_getwindowview"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "screen_capture_exclusion_flags"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "show_home_behind_desktop"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "show_ime_layering_target_when_adding"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "show_when_locked_desktop_bugfix"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "update_dims_when_window_shown"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.window.flags"
+  name: "use_snapshot_fixed_rotation"
+  state: ENABLED
+  permission: READ_ONLY
+}

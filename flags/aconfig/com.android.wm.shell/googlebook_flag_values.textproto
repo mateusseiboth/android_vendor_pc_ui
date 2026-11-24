@@ -1,0 +1,44 @@
+# Flags Googlebook (lapis, Android 17) ships enabled that cp2a leaves disabled.
+# Source: the system and system_ext aconfig storage of the Googlebook image.
+
+flag_value {
+  package: "com.android.wm.shell"
+  name: "add_one_off_handler_leashes"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.wm.shell"
+  name: "consolidate_split_keyboard_shortcut_controllers"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.wm.shell"
+  name: "enable_pip_box_shadows_v2"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.wm.shell"
+  name: "fix_bubble_bar_stashing_with_hardware_keyboard"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.wm.shell"
+  name: "fix_bubble_bar_visibility_update_dropped"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.wm.shell"
+  name: "fix_bubbles_stack_visible_in_immersive"
+  state: ENABLED
+  permission: READ_ONLY
+}

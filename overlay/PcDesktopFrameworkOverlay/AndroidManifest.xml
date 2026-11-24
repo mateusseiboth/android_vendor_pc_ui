@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Desktop windowing and desktop look for the framework, as on Googlebook. Above
+     LineageFrameworksOverlay (300) so these values win. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.lineageos.pc.overlay.desktop.framework">
+
+    <overlay
+        android:isStatic="true"
+        android:priority="400"
+        android:targetPackage="android" />
+</manifest>

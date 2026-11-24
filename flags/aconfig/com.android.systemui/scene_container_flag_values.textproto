@@ -1,0 +1,10 @@
+# SystemUI's scene container, which Googlebook ships enabled. Kept apart: it switches the
+# whole shade and keyguard to the scene framework, so it is the first value to drop if
+# LineageOS's SystemUI changes do not work with it.
+
+flag_value {
+  package: "com.android.systemui"
+  name: "scene_container"
+  state: ENABLED
+  permission: READ_ONLY
+}

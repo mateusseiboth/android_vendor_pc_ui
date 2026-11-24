@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screen off after 10 minutes, no touch sounds, passwords hidden while typed. -->
+    <integer name="def_screen_off_timeout">600000</integer>
+    <bool name="def_sound_effects_enabled">false</bool>
+    <bool name="def_text_show_password">false</bool>
+</resources>

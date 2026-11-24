@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Desktop windowing on the internal display, entered by default, with the home screen
+         (launcher) kept behind the desktop. -->
+    <bool name="config_isDesktopModeSupported">true</bool>
+    <bool name="config_canInternalDisplayHostDesktops">true</bool>
+    <bool name="config_enterDesktopByDefaultOnFreeformDisplay">true</bool>
+    <bool name="config_showHomeBehindDesktop">true</bool>
+
+    <!-- Gestural navigation: on a large screen the launcher draws the taskbar instead of a
+         navigation bar. -->
+    <bool name="config_showNavigationBar">true</bool>
+    <integer name="config_navBarInteractionMode">2</integer>
+    <bool name="config_showGesturalNavigationHints">true</bool>
+
+    <!-- Look: no all-caps buttons, round icons, circular adaptive icon mask, light by default. -->
+    <bool name="config_buttonTextAllCaps">false</bool>
+    <bool name="config_useRoundIcon">true</bool>
+    <string name="config_icon_mask" translatable="false">"M50 0C77.6 0 100 22.4 100 50C100 77.6 77.6 100 50 100C22.4 100 0 77.6 0 50C0 22.4 22.4 0 50 0Z"</string>
+    <integer name="config_defaultNightMode">1</integer>
+    <bool name="config_defaultBatteryPercentageSetting">true</bool>
+
+    <!-- A laptop: the lid sleeps the device, power short press locks or sleeps, long press opens
+         the power menu. -->
+    <bool name="config_lidControlsSleep">true</bool>
+    <bool name="config_unplugTurnsOnScreen">false</bool>
+    <integer name="config_shortPressOnPowerBehavior">6</integer>
+    <integer name="config_longPressOnPowerBehavior">1</integer>
+    <string-array name="config_globalActionsList" translatable="false">
+        <item>lock</item>
+        <item>power</item>
+        <item>restart</item>
+        <item>logout</item>
+        <item>screenshot</item>
+    </string-array>
+
+    <!-- One volume stream, as on a computer. -->
+    <bool name="config_single_volume">true</bool>
+    <bool name="config_handleVolumeKeysInWindowManager">true</bool>
+</resources>

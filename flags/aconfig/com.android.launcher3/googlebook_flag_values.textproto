@@ -1,0 +1,191 @@
+# Flags Googlebook (lapis, Android 17) ships enabled that cp2a leaves disabled.
+# Source: the system and system_ext aconfig storage of the Googlebook image.
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "all_apps_surface"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "bind_model_using_repository"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "blur_on_more_surfaces"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_collapse_sysui_panels_on_taskbar_click"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_compose_for_options_popup_menu_dialog"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_cue_bar_desktop_form_factor"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_cursor_driven_workflows"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_drag_start_end_multi_dispatch"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_file_system_folders_as_drop_targets"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_home_screen_files_copy_paste"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_home_screen_files_renaming"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_home_screen_files_trashing"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_mouse_interaction_changes"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_recents_window_proto_log"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_scalability_for_desktop_experience"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_state_manager_proto_log"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_system_drag"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_system_drag_to_other_apps"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_taskbar_customization"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_taskbar_drag_and_drop"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_taskbar_icon_desktop_clicks"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_taskbar_ui_thread"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "enable_widgets_section_in_options_menu"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "expandable_long_press_menu"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "fallback_reveal_animation"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "orientation_friendly_desktop_grid_spec"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.launcher3"
+  name: "show_files_on_home_screen"
+  state: ENABLED
+  permission: READ_ONLY
+}

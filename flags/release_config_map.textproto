@@ -1,0 +1,7 @@
+# Contributes to the cp2a release config of vendor/lineage/release. Listed in
+# PRODUCT_RELEASE_CONFIG_MAPS by pc_ui.mk, so only products that inherit pc_ui.mk see it
+# (this folder is not one of the vendor/*/*/release folders the build finds on its own).
+default_containers: "product"
+default_containers: "system"
+default_containers: "system_ext"
+default_containers: "vendor"

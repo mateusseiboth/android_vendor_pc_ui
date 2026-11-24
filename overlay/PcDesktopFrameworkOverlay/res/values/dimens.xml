@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Window header of freeform windows. -->
+    <dimen name="desktop_view_default_header_height">40dp</dimen>
+
+    <!-- Top status bar of the desktop. -->
+    <dimen name="status_bar_height_default">36dp</dimen>
+    <dimen name="status_bar_height_portrait">36dp</dimen>
+
+    <!-- Corner radii of dialogs, bottom dialogs, buttons and progress bars. -->
+    <dimen name="config_dialogCornerRadius">28dp</dimen>
+    <dimen name="config_bottomDialogCornerRadius">16dp</dimen>
+    <dimen name="config_buttonCornerRadius">4dp</dimen>
+    <dimen name="config_progressBarCornerRadius">1000dp</dimen>
+</resources>

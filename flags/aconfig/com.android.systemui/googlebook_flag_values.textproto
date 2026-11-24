@@ -1,0 +1,429 @@
+# Flags Googlebook (lapis, Android 17) ships enabled that cp2a leaves disabled.
+# Source: the system and system_ext aconfig storage of the Googlebook image.
+
+flag_value {
+  package: "com.android.systemui"
+  name: "add_new_unlock_hint_on_keyguard"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "animation_library_dynamic_target_resolution"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "async_notification_launch_ipc"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "back_button_on_bouncer_fix"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "black_screen_on_scene_container_start_fix"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "blur_on_more_surfaces"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "clipboard_overlay_multiuser"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "containerize_bouncer_on_large_screens"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "default_hun_expansion"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "desktop_effects_qs_tile"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "desktop_sizing"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "disable_double_click_swap_on_bouncer"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "disable_user_switcher_dropdown_on_bouncer"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "enable_compose_external_display_dialog"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "enable_note_in_action_corner"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "enable_note_qs_tile"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "enable_qs_tile_tooltips"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "expanded_audio_detailed_view"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "expanded_privacy_indicators_on_large_screen"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "fix_predictive_back_clipping"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "floating_menu_adjust_cutout_avoidance"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "floating_menu_on_headless_user"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "handle_boot_completed_on_separate_thread"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "hide_ringer_button_in_single_volume_mode"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "hsu_qs_changes"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "hun_timer_pause_on_hover"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "inline_notification_settings_access"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "internet_dialog_delegate_legacy_deprecation"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "keyguard_remove_ime_focus"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "large_screen_qs_inline_power_menu"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "more_indicators_and_buttons_on_password_bouncer"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "nesteddraggable_gesture_pickup"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "notification_add_x_on_hover_to_dismiss"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "notification_animated_action_style_2026"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "notification_storage_alerts_channel"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "notification_summarization_allow_animation"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "notification_x_button_clip_fix"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "nssl_touch_dispatch_fix"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "opaque_status_bar"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "press_any_key_to_access_bouncer_2"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "qs_cast_tile_hsum_fix"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "qs_cast_tile_skip_wifi_check"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "qs_tile_detailed_view"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "screenshot_remove_nonforced_sound"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "sign_out_button_on_keyguard_status_bar"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "standalone_fingerprint_lock_screen_ux_fix"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "start_on_gone_scene_if_no_lockscreen"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "status_bar_event_forwarding_modernization"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "status_bar_for_desktop"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "status_bar_ime_chip"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "status_bar_is_connected_display_chip_controlled_by_config"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "status_bar_popup_chips"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "status_bar_system_status_icons_in_compose"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "status_icons_in_compose_refresh"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "stl_fling_animation_consume_overshoot"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "strong_auth_required_after_sign_out_message_fix"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "transition_to_bouncer_while_switching_users"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "upright_charging_dreams_setup"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "use_android_ui_dispatcher"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "wakefulness_events_shared_flow"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "wakefulness_for_animations"
+  state: ENABLED
+  permission: READ_ONLY
+}

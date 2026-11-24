@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Default settings of a desktop, as on Googlebook. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.lineageos.pc.overlay.desktop.settingsprovider">
+
+    <overlay
+        android:isStatic="true"
+        android:priority="200"
+        android:targetPackage="com.android.providers.settings" />
+</manifest>
