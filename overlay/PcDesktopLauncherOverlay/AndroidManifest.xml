@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Launcher3 as a desktop, as Googlebook's NexusLauncherOverlayDesktop. Above Lineage's
+     Launcher3Overlay (100). -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.lineageos.pc.overlay.desktop.launcher3">
+
+    <overlay
+        android:isStatic="true"
+        android:priority="200"
+        android:targetPackage="com.android.launcher3" />
+</manifest>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Window header (WM Shell, built into SystemUI): 32dp window buttons with 6dp padding
+         (20dp glyphs) and no ripple inset, in the 40dp header. -->
+    <dimen name="desktop_mode_header_window_control_button_width_large">32dp</dimen>
+    <dimen name="desktop_mode_header_window_control_button_height_large">32dp</dimen>
+    <dimen name="desktop_mode_header_window_control_button_padding_large">6dp</dimen>
+    <dimen name="desktop_mode_header_minimize_ripple_inset_large">0dp</dimen>
+    <dimen name="desktop_mode_header_maximize_ripple_inset_large">0dp</dimen>
+    <dimen name="desktop_mode_header_close_ripple_inset_large">0dp</dimen>
+    <dimen name="desktop_mode_header_app_chip_ripple_inset_vertical_large">4dp</dimen>
+    <dimen name="desktop_mode_customizable_caption_drag_only_width">40dp</dimen>
+    <dimen name="desktop_mode_customizable_caption_margin_start">80dp</dimen>
+
+    <!-- Resize: 8dp outside the window edges; corners resize from the edges with a mouse. -->
+    <dimen name="freeform_edge_handle_outset">8dp</dimen>
+    <dimen name="freeform_resize_corner">0dp</dimen>
+
+    <!-- App handle of fullscreen apps and the home screen peek. -->
+    <dimen name="desktop_mode_fullscreen_decor_caption_height">48dp</dimen>
+    <dimen name="desktop_home_screen_peeking_visible_peek_amount">48dp</dimen>
+</resources>

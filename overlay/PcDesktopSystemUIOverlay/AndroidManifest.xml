@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Desktop SystemUI and WM Shell values, as Googlebook's SystemUIDesktopOverlay. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.lineageos.pc.overlay.desktop.systemui">
+
+    <overlay
+        android:isStatic="true"
+        android:priority="200"
+        android:targetPackage="com.android.systemui" />
+</manifest>

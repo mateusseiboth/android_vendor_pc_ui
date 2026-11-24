@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Top status bar of the desktop (clock and date on the left; notifications bell and quick
+         settings chip on the right). Needs the status_bar_for_desktop and scene_container flags. -->
+    <bool name="config_useDesktopStatusBar">true</bool>
+    <bool name="config_statusBarTapToExpandShade">true</bool>
+    <bool name="config_enableTwoFingerSwipeDownShade">false</bool>
+    <bool name="config_isStatusBarConnectedDisplayChipEnabled">false</bool>
+    <bool name="config_largeScreenPrivacyIndicator">true</bool>
+
+    <!-- Notifications and quick settings are popups at the top end, under the status bar, with
+         no separate full screen shade scenes. -->
+    <bool name="config_notificationShadeOnTopEnd">true</bool>
+    <bool name="config_includeQSAndShadeScenes">false</bool>
+    <bool name="config_disableDualShadeEducationalTooltips">true</bool>
+    <bool name="config_enableHideNotificationsShadeOnAllAppsKey">true</bool>
+    <bool name="config_enableHUNExpansion">true</bool>
+
+    <!-- Quick settings: infinite grid, power menu inline in the toolbar, brightness dialog at the
+         end side, audio details in the tile. -->
+    <bool name="config_useInfiniteGridLayoutAsDefault">true</bool>
+    <bool name="config_qsInlinePowerMenu">true</bool>
+    <bool name="config_useBrightnessMirrorInOverlay">false</bool>
+    <bool name="config_endSideBrightnessDialog">true</bool>
+    <bool name="config_enableDesktopAudioTileDetailsView">true</bool>
+    <string name="quick_settings_tiles_default" translatable="false">internet,bt,cast,screenrecord,dnd,mictoggle,cameratoggle,dark,rotation</string>
+
+    <!-- A desktop: mouse and keyboard input, no blurred wallpaper, opaque power menu. -->
+    <bool name="config_isDesktopForFalsingPurposes">true</bool>
+    <bool name="config_enableInputRouting">true</bool>
+    <bool name="config_supportBlurredWallpaper">false</bool>
+    <bool name="config_translucentStandalonePowerMenu">false</bool>
+
+    <!-- Lock screen of a desktop. -->
+    <bool name="config_improveLargeScreenInteractionOnLockscreen">true</bool>
+    <bool name="config_disableNotificationShelfOnKeyguard">true</bool>
+    <bool name="config_showAccessibilityButtonOnBouncer">true</bool>
+    <integer name="config_lockScreenDisplayTimeout">60000</integer>
+</resources>

@@ -17,6 +17,7 @@ TARGET_RES_DIRS = {
         "frameworks/base/packages/SystemUI/res-keyguard",
         "frameworks/base/packages/SystemUI/res-product",
         "frameworks/base/libs/WindowManager/Shell/res",
+        "frameworks/base/libs/WindowManager/Shell/shared/res",
         "frameworks/base/packages/SettingsLib/res",
     ],
     "com.android.launcher3": [

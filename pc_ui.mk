@@ -7,7 +7,9 @@ PC_UI_DIR := vendor/pc/ui
 # Runtime resource overlays (overlay/).
 PRODUCT_PACKAGES += \
     PcDesktopFrameworkOverlay \
-    PcDesktopSettingsProviderOverlay
+    PcDesktopLauncherOverlay \
+    PcDesktopSettingsProviderOverlay \
+    PcDesktopSystemUIOverlay
 
 # aconfig values that Googlebook ships enabled, added to the cp2a release config (flags/).
 PRODUCT_RELEASE_CONFIG_MAPS += $(PC_UI_DIR)/flags/release_config_map.textproto

@@ -34,6 +34,19 @@
         <item>screenshot</item>
     </string-array>
 
+    <!-- App compatibility on a large landscape screen (LargeScreenConfigOverlay): letterboxed apps
+         centered at 4:3, reachability and the user aspect ratio settings. -->
+    <bool name="config_appCompatUserAppAspectRatioSettingsIsEnabled">true</bool>
+    <bool name="config_appCompatUserAppAspectRatioFullscreenIsEnabled">true</bool>
+    <bool name="config_letterboxIsEducationEnabled">true</bool>
+    <bool name="config_letterboxIsHorizontalReachabilityEnabled">true</bool>
+    <bool name="config_letterboxIsVerticalReachabilityEnabled">true</bool>
+    <bool name="config_letterboxIsEnabledForTranslucentActivities">true</bool>
+    <bool name="config_letterboxIsSplitScreenAspectRatioForUnresizableAppsEnabled">true</bool>
+    <item name="config_fixedOrientationLetterboxAspectRatio" format="float" type="dimen">1.333</item>
+    <item name="config_letterboxVerticalPositionMultiplier" format="float" type="dimen">0.5</item>
+    <integer name="config_letterboxActivityCornersRadius">-1</integer>
+
     <!-- One volume stream, as on a computer. -->
     <bool name="config_single_volume">true</bool>
     <bool name="config_handleVolumeKeysInWindowManager">true</bool>

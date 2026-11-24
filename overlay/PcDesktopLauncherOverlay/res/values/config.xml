@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Desktop device type: desktop grid, pinned full width taskbar with square corners, pill
+         All Apps button and floating All Apps panel. -->
+    <bool name="desktop_form_factor">true</bool>
+    <!-- No blur behind the workspace and All Apps. -->
+    <bool name="reduce_workspace_blur_usage">true</bool>
+</resources>
