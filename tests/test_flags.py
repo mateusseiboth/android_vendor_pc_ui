@@ -54,7 +54,7 @@ class FlagValuesTest(unittest.TestCase):
     def test_value_set_joins_the_cp2a_release_config(self):
         release = (tree.REPO / "flags/release_configs/cp2a.textproto").read_text()
         value_set = re.search(r'aconfig_value_sets:\s*"([^"]+)"', release).group(1)
-        self.assertIn(f'name: "{value_set}"', (tree.REPO / "flags/aconfig/Android.bp").read_text())
+        self.assertIn(f'name: "{value_set}"', (tree.REPO / "flags/aconfig/cp2a/Android.bp").read_text())
         self.assertIn("flags/release_config_map.textproto",
                       (tree.REPO / "pc_ui.mk").read_text())
 

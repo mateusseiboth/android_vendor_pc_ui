@@ -1,5 +1,5 @@
 // aconfig values of the PC desktop UI, added to the cp2a release config by
-// ../release_configs/cp2a.textproto. One aconfig_values module per flag package.
+// ../../release_configs/cp2a.textproto. One aconfig_values module per flag package.
 aconfig_value_set {
     name: "aconfig_value_set-pc-ui-cp2a",
     srcs: [
