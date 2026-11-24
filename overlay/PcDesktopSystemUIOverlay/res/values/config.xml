@@ -35,6 +35,9 @@
          translucent one on top (pc branch of frameworks/base). -->
     <bool name="config_windowDecorThemeFromTopOpaqueBackground">true</bool>
 
+    <!-- A click on the status bar clock opens the calendar popup (pc branch of frameworks/base). -->
+    <bool name="config_statusBarClockOpensCalendar">true</bool>
+
     <!-- Lock screen of a desktop. -->
     <bool name="config_improveLargeScreenInteractionOnLockscreen">true</bool>
     <bool name="config_disableNotificationShelfOnKeyguard">true</bool>

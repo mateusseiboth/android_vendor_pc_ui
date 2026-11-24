@@ -33,6 +33,8 @@ SYSTEMUI_SPEC = {
     ("dimen", "freeform_edge_handle_outset"): "8dp",
     # pc branch of frameworks/base: header theme from the topmost opaque activity.
     ("bool", "config_windowDecorThemeFromTopOpaqueBackground"): "true",
+    # pc branch of frameworks/base: calendar popup on the status bar clock.
+    ("bool", "config_statusBarClockOpensCalendar"): "true",
 }
 
 LAUNCHER_SPEC = {

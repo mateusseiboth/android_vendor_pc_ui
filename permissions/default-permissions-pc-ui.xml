@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Runtime permissions the desktop UI's system apps hold by default. -->
+<exceptions>
+    <!-- The desktop status bar's calendar popup lists the next events. -->
+    <exception package="com.android.systemui">
+        <permission name="android.permission.READ_CALENDAR" fixed="false" />
+    </exception>
+</exceptions>

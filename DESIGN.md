@@ -40,7 +40,8 @@ We follow the same split: `flags/` and `overlay/` here, code on branch `pc`.
 | Already equal in AOSP | Heights, icon sizes, spacing, background colors, stroke, running/minimized indicators and their animations, hover tooltips, the context menu, overflow (flags) |
 | Implemented | `overlay/PcDesktopLauncherOverlay`: `desktop_form_factor` (device type desktop), `reduce_workspace_blur_usage`, `popup_blur_radius` 34dp. Launcher3 `pc`: "Taskbar: Keep square corners on the desktop form factor" (`TaskbarCornerRoundness`), "Taskbar: Googlebook style All Apps on the desktop form factor" (`TaskbarAllAppsPill`, new pill drawables and tints, layout width, 10 hotseat icons, 24 stored, `default_workspace_desktop.xml`) |
 | Pinned apps | Googlebook: Gemini, Chrome, Gmail, Calendar, Messages, YouTube, Photos, Files, Play Store. Ours by role (intent categories, so LineageOS's apps resolve): browser, email, calendar, messaging, music, gallery, files, settings |
-| Remains | Desktop divider drawable (52dp viewport, 21dp line, outline color); recents section container and divider placement as in Googlebook; `taskbar_button_margin_desktop`; remote apps and handoff (Google services) |
+| Handoff | Googlebook's handoff (taskbar suggestion of the app open on another of the user's devices, from `TaskContinuityManager`) is the same code as AOSP's `taskbar/handoff` (`HandoffSuggestionRepository`, `TaskbarHandoffController`, `HandoffSuggestionLauncher`, badge #1A73E8). Launcher3 `pc` "Taskbar: Name the device of a handoff suggestion" labels it "<app> on <device>" (pt: "<app> em <device>") for the tooltip and accessibility. `flags/.../android.companion/handoff_flag_values.textproto` pins `task_continuity`; Launcher3's `READ_REMOTE_TASKS` and `REQUEST_TASK_HANDOFF` are already in frameworks/base's `com.android.launcher3.xml`. Suggestions only appear with another device associated through the companion device manager and running task continuity |
+| Remains | Desktop divider drawable (52dp viewport, 21dp line, outline color); recents section container and divider placement as in Googlebook; `taskbar_button_margin_desktop`; remote apps (Google services) |
 
 ### 3. Status bar, quick settings, notifications
 
@@ -49,7 +50,8 @@ We follow the same split: `flags/` and `overlay/` here, code on branch `pc`.
 | Googlebook | Top status bar 36dp: clock and date (`EEEMMMd`) on the left; ongoing chips, notification bell chip and quick settings chip (status icons, battery) on the right; transparent with adaptive tint, opaque over a maximized window. Bell and QS chip open popups (dual shade overlays) at the top end, 376dp wide, 36dp radius, 24dp margin, translucent shade panel colors; tiles 56dp; inline power menu. Heads-up at the top end. SystemUITitan `DesktopStatusBar`, `SystemUIDesktopOverlay`, flags `status_bar_for_desktop`, `scene_container`, `status_bar_popup_chips`, `desktop_sizing`, `opaque_status_bar` |
 | Already in AOSP | All of it (`DesktopStatusBar.kt`, dual shade overlays, `desktop_sizing` dimens) behind those flags and configs |
 | Implemented | Flags (above). `overlay/PcDesktopSystemUIOverlay`: `config_useDesktopStatusBar`, `config_notificationShadeOnTopEnd`, `config_includeQSAndShadeScenes`=false, tap to expand, infinite grid, inline power menu, end side brightness dialog, default tiles without Google's (`ime` tile does not exist here), desktop falsing and input, lock screen values. Framework overlay: status bar height 36dp, shade panel colors, battery percentage |
-| Remains | Calendar popup on the clock (Googlebook only, `enable_desktop_calendar_overlay`); tap on the status bar closing All Apps (`desktop_status_bar_taps_close_all_apps`); 14sp status icon sizes; night light button next to brightness; `overlay_panel_margin_from_middle` |
+| Calendar popup | Googlebook: a click on clock and date opens a Material 3 date picker on the panel background (`CalendarPopup`, `QuickActionChipId.Calendar`). Ours, frameworks/base `pc` "SystemUI: Calendar popup on the desktop status bar clock": a quick action panel anchored to the clock with the month (Material 3 `DatePicker`, today marked), the next week's events from `CalendarContract.Instances`, a click on an event opens it, "Open calendar" opens the selected day. Enabled by `config_statusBarClockOpensCalendar` (SystemUI overlay); SystemUI requests `READ_CALENDAR`, granted by `permissions/default-permissions-pc-ui.xml` |
+| Remains | Tap on the status bar closing All Apps (`desktop_status_bar_taps_close_all_apps`); 14sp status icon sizes; night light button next to brightness; `overlay_panel_margin_from_middle` |
 
 ### 4. App launcher (All Apps)
 
@@ -66,7 +68,8 @@ We follow the same split: `flags/` and `overlay/` here, code on branch `pc`.
 | Googlebook | 40dp header; app chip (24dp icon, 14sp name, chevron) at the start; minimize, maximize, close at the end as 32dp buttons with 6dp padding (20dp glyphs), 20dp gaps, no ripple inset; header colors from the dynamic scheme (secondary container / surface container low; surface container high / dim in dark); box shadows v2; square corners when maximized; handle menu opens below the header; 8dp resize outset, edge only mouse corners |
 | Already equal in AOSP | Colors, shadows and borders (flag `enable_freeform_box_shadows_v2`), double click and drag to top maximize, snap, maximize menu |
 | Implemented | Framework overlay: 40dp (`desktop_view_default_large_header_height`). SystemUI overlay: Shell `*_large` button size, padding, ripple insets, chip inset, drag only width, caption margin, resize outset and corner, fullscreen handle height, home peek, to desktop animation. frameworks/base `pc`: "WMShell: Open the app header's handle menu below the header", "WMShell: Square corners for maximized desktop windows" |
-| Remains | Rounded 20dp Material Symbols for the header buttons (new vectors in Shell `res/drawable`); 20dp gap between buttons (hard coded 8dp in the layout); "App info" row in the handle menu; header theme from the top opaque background color (needs a framework API); no-resize pointer icons; Googlebook's mouse pointer set |
+| Header theme | Googlebook keys the header's light or dark scheme off `TaskDescription.getTopOpaqueBackgroundColor()`. Ours, frameworks/base `pc` "Window header theme from the top opaque activity's background": a hidden `TaskDescription.topOpaqueBackgroundColor` that `Task` fills from the topmost activity filling the task (as AOSP does for `topOpaqueSystemBarsAppearance`), used by WM Shell's `DecorThemeUtil` when `config_windowDecorThemeFromTopOpaqueBackground` is set (SystemUI overlay) |
+| Remains | Rounded 20dp Material Symbols for the header buttons (new vectors in Shell `res/drawable`); 20dp gap between buttons (hard coded 8dp in the layout); "App info" row in the handle menu; the starting window color as a second fallback of the header theme; no-resize pointer icons; Googlebook's mouse pointer set |
 
 ### 6. Theming
 
@@ -92,7 +95,8 @@ What the device tree and manifests need (not edited by this work):
 
    Locally the branches already exist in the synced projects:
    `git -C frameworks/base checkout pc` and `git -C packages/apps/Launcher3 checkout pc`.
-2. `device/pc/pc_x86_64/lineage_pc_x86_64.mk`: `$(call inherit-product, vendor/pc/ui/pc_ui.mk)`.
+2. `device/pc/pc_x86_64/lineage_pc_x86_64.mk`: `$(call inherit-product, vendor/pc/ui/pc_ui.mk)`
+   (overlays, flag values, and `/product/etc/default-permissions/default-permissions-pc-ui.xml`).
 3. `device/pc/pc_x86_64/device.mk`: `PRODUCT_CHARACTERISTICS := desktop` (instead of `tablet`;
    gives `ro.build.characteristics=desktop` and the framework's `product="desktop"` strings).
 4. Nothing else: no release config or lunch change (still `lineage_pc_x86_64-cp2a-userdebug`).
@@ -101,7 +105,8 @@ What the device tree and manifests need (not edited by this work):
 
 Verified on the host: overlay resource names against the tree, flag names against the tree's
 aconfig declarations, the release config (release-config lists the value set last in cp2a).
-Not verified without a build: compilation of the Launcher3 and Shell changes and their unit tests
-(`WMShellUnitTests`; Launcher3's quickstep tests have no test module in AOSP), RRO compilation,
+Not verified without a build: compilation of the Launcher3, Shell, SystemUI and framework changes
+and their unit tests (`WMShellUnitTests`, `SystemUITests`, `WmTests`, `FrameworksCoreTests`;
+Launcher3's quickstep tests have no test module in AOSP), RRO compilation,
 and the runtime result of the 134 flags together (in particular `scene_container` with
 LineageOS's SystemUI changes).

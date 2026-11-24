@@ -17,6 +17,7 @@ element to what implements it and what is still missing.
 | `overlay/PcDesktopLauncherOverlay` | `com.android.launcher3`: desktop form factor, blur, popups |
 | `overlay/PcDesktopSettingsProviderOverlay` | `com.android.providers.settings`: desktop defaults |
 | `flags/` | aconfig values Googlebook ships enabled, contributed to the `cp2a` release config |
+| `permissions/` | Default runtime permissions (SystemUI reads the calendar for the status bar calendar) |
 | `tests/` | Host tests (Python) |
 
 ## Use
@@ -58,7 +59,8 @@ need, and is the first file to drop if LineageOS's SystemUI changes do not work 
 cd vendor/pc/ui/tests && python3 -m unittest
 ```
 
-They check that every overlaid resource exists in its target package, that every flag value
+They check that every overlaid resource exists in its target package (also when it is declared
+only on the project's `pc` branch, before that branch is checked out), that every flag value
 names a flag declared in the tree, that the release config wiring is in place, and that the
 overlays carry Googlebook's values. `ANDROID_BUILD_TOP` points at the tree (default: three
 folders up).

@@ -11,6 +11,10 @@ PRODUCT_PACKAGES += \
     PcDesktopSettingsProviderOverlay \
     PcDesktopSystemUIOverlay
 
+# Runtime permissions granted by default (the status bar calendar reads the calendar).
+PRODUCT_COPY_FILES += \
+    $(PC_UI_DIR)/permissions/default-permissions-pc-ui.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions-pc-ui.xml
+
 # aconfig values that Googlebook ships enabled, added to the cp2a release config (flags/).
 PRODUCT_RELEASE_CONFIG_MAPS += $(PC_UI_DIR)/flags/release_config_map.textproto
 
