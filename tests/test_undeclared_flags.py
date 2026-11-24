@@ -46,6 +46,10 @@ class UndeclaredFlagsTest(unittest.TestCase):
                 with self.subTest(flag=name):
                     self.assertIn(name, enabled)
 
+    def test_nothing_is_left_to_do(self):
+        left = [name for name, _, _, decision in read_rows() if decision.startswith("to do")]
+        self.assertEqual(left, [])
+
     def test_no_em_dash(self):
         self.assertNotIn("—", DESIGN.read_text())
 
