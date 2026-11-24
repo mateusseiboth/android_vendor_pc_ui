@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Users and the login screen, as on Googlebook. Above AOSP's HSUM overlays (2) and
+     LineageFrameworksOverlay (300) so these values win. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.lineageos.pc.overlay.login.framework">
+
+    <overlay
+        android:isStatic="true"
+        android:priority="410"
+        android:targetPackage="android" />
+</manifest>

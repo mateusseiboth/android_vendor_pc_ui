@@ -12,6 +12,9 @@ element to what implements it and what is still missing.
 | Path | What |
 |---|---|
 | `pc_ui.mk` | Product makefile the device inherits: installs the overlays, adds the flag values, inherits `packages/apps/PcClocks/pc_clocks.mk` (lock screen clocks) when present |
+| `pc_login.mk` | Optional, inherited first: the PC starts on a login screen (headless system user mode, `PcLogin`) |
+| `overlay/PcLoginFrameworkOverlay` | `android`: users and the login screen (sign out through the login screen, guests, lock screen defaults, activities allowed over the login screen) |
+| `sysconfig/` | Which users get which system packages under `pc_login.mk` (the setup wizard stays off user 0) |
 | `overlay/PcDesktopFrameworkOverlay` | `android`: desktop windowing on the internal display, 40dp headers, 36dp status bar, radii, icon mask, shade panel colors, letterbox, laptop power keys |
 | `overlay/PcDesktopSystemUIOverlay` | `com.android.systemui`: desktop status bar, shade popups at the top end, quick settings, window header button sizes (WM Shell resources live in SystemUI), screen capture (toolbar, recordings folder), clock plugin allowlist |
 | `overlay/PcDesktopLauncherOverlay` | `com.android.launcher3`: desktop form factor, blur, popups |
@@ -31,6 +34,15 @@ $(call inherit-product, vendor/pc/ui/pc_ui.mk)
 and build with the `pc` branch of `packages/apps/Launcher3` and the `capture` branch of
 `frameworks/base` (screen capture, on top of `pc`), plus `packages/apps/PcClocks` (see
 `DESIGN.md`, "Integration").
+
+## Login screen
+
+```make
+$(call inherit-product, vendor/pc/ui/pc_login.mk)   # first line of the device's product makefile
+```
+
+with `packages/apps/PcLogin` in the tree. User 0 becomes the login screen; the first boot creates the
+first user and runs the setup wizard in it. `DESIGN.md`, "Login screen", has the details.
 
 ## Flag values
 

@@ -32,7 +32,7 @@ class OverlaysTest(unittest.TestCase):
                 with self.subTest(overlay=overlay_dir.name, resource=f"{kind}/{name}"):
                     self.assertTrue((kind, name) in declared, "not in the target")
 
-    def test_every_overlay_is_a_module_installed_by_pc_ui_mk(self):
+    def test_every_overlay_is_a_module_installed_by_a_product_makefile(self):
         installed = tree.read_product_packages()
         for overlay_dir, _ in tree.find_overlays():
             with self.subTest(overlay=overlay_dir.name):

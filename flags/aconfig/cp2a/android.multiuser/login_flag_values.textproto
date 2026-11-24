@@ -1,0 +1,58 @@
+# Headless system user mode with user 0 as the login screen (pc_login.mk): the android.multiuser
+# flags Googlebook (lapis, Android 17) ships enabled for it that cp2a leaves disabled.
+
+# First boot creates the first admin user, which runs the setup wizard.
+flag_value {
+  package: "android.multiuser"
+  name: "create_initial_user"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+# Only the activities of hsu_allowlist_activities start over the login screen.
+flag_value {
+  package: "android.multiuser"
+  name: "hsu_allowlist_activities"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+# Marks the headless system user as set up once the first user finishes setup.
+flag_value {
+  package: "android.multiuser"
+  name: "hsu_device_provisioner"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+# No notifications on the login screen.
+flag_value {
+  package: "android.multiuser"
+  name: "hsu_disable_notifications"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+# Settings manages the apps of the headless system user.
+flag_value {
+  package: "android.multiuser"
+  name: "hsu_app_management"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+# The switch dialog says "Signing out" when a user signs out.
+flag_value {
+  package: "android.multiuser"
+  name: "user_switching_dialog_signout_message"
+  state: ENABLED
+  permission: READ_ONLY
+}
+
+# An admin does not see the other users' apps.
+flag_value {
+  package: "android.multiuser"
+  name: "dont_show_other_users_apps_to_admin"
+  state: ENABLED
+  permission: READ_ONLY
+}

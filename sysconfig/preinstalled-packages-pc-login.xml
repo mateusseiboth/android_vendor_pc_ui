@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Packages that must stay off the headless system user (user 0), which hosts the login screen. -->
+<config>
+    <!-- LineageOS setup wizard: runs in the first user (device setup) and in each new user. -->
+    <install-in-user-type package="org.lineageos.setupwizard">
+        <install-in user-type="FULL" />
+        <install-in user-type="PROFILE" />
+    </install-in-user-type>
+</config>
