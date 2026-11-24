@@ -11,9 +11,9 @@ element to what implements it and what is still missing.
 
 | Path | What |
 |---|---|
-| `pc_ui.mk` | Product makefile the device inherits: installs the overlays, adds the flag values |
+| `pc_ui.mk` | Product makefile the device inherits: installs the overlays, adds the flag values, inherits `packages/apps/PcClocks/pc_clocks.mk` (lock screen clocks) when present |
 | `overlay/PcDesktopFrameworkOverlay` | `android`: desktop windowing on the internal display, 40dp headers, 36dp status bar, radii, icon mask, shade panel colors, letterbox, laptop power keys |
-| `overlay/PcDesktopSystemUIOverlay` | `com.android.systemui`: desktop status bar, shade popups at the top end, quick settings, window header button sizes (WM Shell resources live in SystemUI) |
+| `overlay/PcDesktopSystemUIOverlay` | `com.android.systemui`: desktop status bar, shade popups at the top end, quick settings, window header button sizes (WM Shell resources live in SystemUI), screen capture (toolbar, recordings folder), clock plugin allowlist |
 | `overlay/PcDesktopLauncherOverlay` | `com.android.launcher3`: desktop form factor, blur, popups |
 | `overlay/PcDesktopSettingsProviderOverlay` | `com.android.providers.settings`: desktop defaults |
 | `flags/` | aconfig values Googlebook ships enabled, contributed to the `cp2a` release config |
@@ -28,7 +28,8 @@ In the device's product makefile:
 $(call inherit-product, vendor/pc/ui/pc_ui.mk)
 ```
 
-and build with the `pc` branches of `frameworks/base` and `packages/apps/Launcher3` (see
+and build with the `pc` branch of `packages/apps/Launcher3` and the `capture` branch of
+`frameworks/base` (screen capture, on top of `pc`), plus `packages/apps/PcClocks` (see
 `DESIGN.md`, "Integration").
 
 ## Flag values

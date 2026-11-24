@@ -38,6 +38,25 @@
     <!-- A click on the status bar clock opens the calendar popup (pc branch of frameworks/base). -->
     <bool name="config_statusBarClockOpensCalendar">true</bool>
 
+    <!-- Screen capture: the large screen toolbar (screenshot or recording of the screen, a window
+         or a region; the screenrecord tile opens it). New recordings go to Movies/Screen
+         recordings (capture branch of frameworks/base). -->
+    <bool name="config_enableLargeScreenScreencapture">true</bool>
+    <string name="config_screenRecordingFolder" translatable="false">Movies/Screen recordings</string>
+
+    <!-- Plugins SystemUI loads on user builds: itself and the lock screen clock styles of
+         packages/apps/PcClocks. -->
+    <string-array name="config_pluginAllowlist" translatable="false">
+        <item>com.android.systemui</item>
+        <item>com.android.systemui.clocks.bignum</item>
+        <item>com.android.systemui.clocks.calligraphy</item>
+        <item>com.android.systemui.clocks.growth</item>
+        <item>com.android.systemui.clocks.inflate</item>
+        <item>com.android.systemui.clocks.metro</item>
+        <item>com.android.systemui.clocks.numoverlap</item>
+        <item>com.android.systemui.clocks.weather</item>
+    </string-array>
+
     <!-- Lock screen of a desktop. -->
     <bool name="config_improveLargeScreenInteractionOnLockscreen">true</bool>
     <bool name="config_disableNotificationShelfOnKeyguard">true</bool>

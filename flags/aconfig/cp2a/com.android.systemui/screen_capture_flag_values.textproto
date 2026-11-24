@@ -1,0 +1,9 @@
+# Region recordings in the large screen capture UI. Googlebook leaves it off; the capture branch
+# of frameworks/base records the selected area. cp2a already enables large_screen_screencapture,
+# large_screen_recording, large_screen_sharing and new_screen_record_toolbar.
+flag_value {
+  package: "com.android.systemui"
+  name: "large_screen_region_recording"
+  state: ENABLED
+  permission: READ_ONLY
+}
