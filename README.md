@@ -64,3 +64,12 @@ only on the project's `pc` branch, before that branch is checked out), that ever
 names a flag declared in the tree, that the release config wiring is in place, and that the
 overlays carry Googlebook's values. `ANDROID_BUILD_TOP` points at the tree (default: three
 folders up).
+
+## Credits
+
+- [LineageOS](https://lineageos.org) ([GitHub](https://github.com/LineageOS)): the base system and build this is part of.
+- [Android Open Source Project](https://source.android.com): the platform, its APIs and build system.
+- The overlays and flag values configure AOSP's own desktop windowing, SystemUI and Launcher3 code.
+- [BlissOS](https://blissos.org) ([GitHub](https://github.com/BlissOS)) and the [Android-Generic Project](https://github.com/android-generic): the approach to running Android on PCs that this project follows.
+
+Thanks to everyone behind these projects. Files taken from them keep their original licenses and copyright notices.
