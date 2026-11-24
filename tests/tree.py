@@ -125,6 +125,7 @@ DECLARATION_DIRS = [
     "frameworks/base/packages/SystemUI/aconfig",
     "packages/apps/Launcher3/aconfig",
     "frameworks/base/core/java/android/companion",
+    "frameworks/base/core/java/android/content/pm",
 ]
 
 
@@ -156,9 +157,13 @@ def read_flag_values():
     return values
 
 
-def read_product_packages():
-    """Module names pc_ui.mk adds to PRODUCT_PACKAGES."""
-    text = (REPO / "pc_ui.mk").read_text().replace("\\\n", " ")
+PRODUCT_MAKEFILES = ("pc_ui.mk", "pc_login.mk")
+
+
+def read_product_packages(makefile=None):
+    """Module names a product makefile of the repo (all of them by default) adds to PRODUCT_PACKAGES."""
+    paths = [makefile] if makefile else [REPO / name for name in PRODUCT_MAKEFILES]
+    text = "\n".join(path.read_text() for path in paths).replace("\\\n", " ")
     modules = set()
     for line in text.splitlines():
         if line.strip().startswith("PRODUCT_PACKAGES"):

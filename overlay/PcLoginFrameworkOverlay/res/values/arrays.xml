@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Activities that may start while the headless system user (the login screen) is in the
+         foreground: the login screen, the system's fallback home, the second display's home and
+         the permission prompt. -->
+    <string-array name="hsu_allowlist_activities" translatable="false">
+        <item>org.lineageos.pclogin/.LoginActivity</item>
+        <item>com.android.settings/.FallbackHome</item>
+        <item>com.android.launcher3/com.android.launcher3.secondarydisplay.SecondaryDisplayLauncher</item>
+        <item>com.android.permissioncontroller/com.android.permissioncontroller.permission.ui.GrantPermissionsActivity</item>
+    </string-array>
+
+    <!-- Accessibility shortcuts the login screen does not offer. -->
+    <string-array name="hsu_accessibility_targets_blocklist" translatable="false">
+        <item>com.android.server.accessibility/HearingAids</item>
+    </string-array>
+</resources>

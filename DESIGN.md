@@ -79,6 +79,15 @@ We follow the same split: `flags/` and `overlay/` here, code on branch `pc`.
 | Implemented | Framework overlay: night mode off by default, round icons and circular mask, radii, no all caps. Fonts: LineageOS already ships Google Sans Flex (OFL) through `FontGoogleSansFlexOverlay`, the closest open font |
 | Remains | A wallpaper of our own; `google-sans-text`/`-medium` font family aliases to Google Sans Flex in `fonts_customization.xml` (the variable label families fall back to them) |
 
+### 7. Login screen (multiple users)
+
+| | |
+|---|---|
+| Googlebook | Headless system user mode (HSUM) with the system user as a login screen, AOSP's `hsu_as_login.mk`: `system_ext` sets `ro.fw.mu.headless_system_user=true` and `debug.run-as.use_current_user=true` (`hsum_common.mk`); `HsuAsLoginConfigOverlay` sets `config_canSwitchToHeadlessSystemUser=true` and `config_hsumBootStrategy=1` (boot to user 0 once the device is provisioned, to the first full user before); `HsumDefaultConfigOverlay`: `config_enableMultiUserUI`, `config_enableMultipleAdmins`, `config_multiuserMaxRunningUsers` 4. `FrameworkDesktopOverlay`: `config_userSwitchingMustGoThroughLoginScreen`, no user switcher, ephemeral guests, no permanent admin, animated avatar on switch, lock screen disabled by default and no swipe lock, no alarms of stopped users, the HSU activity allowlist (`config_hsuActivitiesAllowlistMode` 1, `hsu_allowlist_activities` starting with `com.google.android.desktop.identity.login/.LoginLauncherActivity`). The login app (`system_ext/priv-app/Login`, `com.google.android.desktop.identity.login`) is user 0's home (HOME filter, priority 4): user pods (190dp pictures, 120dp past a few users) with the name under them, a bottom bar with Accessibility, "Use as guest" and "Add user", progress while switching, blurred wallpaper. A pod switches to the user; the user's lock screen asks for the PIN or password. "Add user" creates "New User" and switches to it; the setup wizard runs there. The system tray signs out through the global action `logout` (`config_globalActionsList`); `android.multiuser` flags `create_initial_user`, `hsu_allowlist_activities`, `hsu_device_provisioner`, `hsu_disable_notifications`, `hsu_app_management`, `user_switching_dialog_signout_message` and the SystemUI `desktop_users_and_accounts` flags (keyguard sign out button, bouncer user pill) are on |
+| Already in AOSP 17 | All the framework side: `HsumBootUserInitializer` creates the first admin user (`config_createInitialAdminUserOnHsum`), `UserManagerService.getBootUser` boot strategies, `UserController.logoutUser` (switch to user 0, stop the user), `UserHelper` HSU activity allowlist, SystemUI's `UserLogoutInteractor` ("Sign out" in the QS power menu and on the keyguard status bar), no taskbar on user 0 (`LauncherProxyService` skips the launcher service for the HSU), `hsu_qs_changes` (no QS edit or settings on user 0). Missing: only the login app (`packages/apps/Login` is an empty placeholder in AOSP) |
+| Implemented | `pc_login.mk` (inherit first): `hsu_as_login.mk`, `PcLogin` and `overlay/PcLoginFrameworkOverlay` (the Googlebook values above that exist in this tree; allowlist with our login activity, Settings' FallbackHome, Launcher3's second display home and the permission prompt), `sysconfig/preinstalled-packages-pc-login.xml` (LineageOS's setup wizard only in full users and profiles, so its home does not take user 0's place). `flags/aconfig/cp2a/android.multiuser` (the six flags above, plus `dont_show_other_users_apps_to_admin`); the SystemUI flags were already in `googlebook_flag_values`. `packages/apps/PcLogin` (new): the login screen, written anew (pods, bottom bar, guest cleanup, add user rules from `DISALLOW_ADD_USER`/`DISALLOW_ADD_GUEST`, blur), installed for the system user only |
+| Not copied | `config_multiuserMaxRunningUsers` 3 (Googlebook's desktop overlay; AOSP's HSUM value 4 kept), `config_multiuserMaximumUsers` 50 (LineageOS's 4 kept), `config_user_types` (Googlebook turns off private space and clone profiles), `config_supportManagedProfileOnNonMainUser`, `config_lockPinEnhancedPrivacyDefault`, `config_enableUserInfoSetupInSuw` (LineageOS's setup wizard has no user info page). `config_showWallpaperDuringUserSwitch` and `config_useSystemUserVisualAppearanceUntilUnlocked` are not in this tree; `config_useSystemWallpaperDuringUserSwitch` is declared but nothing reads it. `android.os.login_add_user_enforcement` is declared but nothing reads it (PcLogin checks admin policies itself) |
+
 ## Integration
 
 What the device tree and manifests need (not edited by this work):
@@ -99,7 +108,13 @@ What the device tree and manifests need (not edited by this work):
    (overlays, flag values, and `/product/etc/default-permissions/default-permissions-pc-ui.xml`).
 3. `device/pc/pc_x86_64/device.mk`: `PRODUCT_CHARACTERISTICS := desktop` (instead of `tablet`;
    gives `ro.build.characteristics=desktop` and the framework's `product="desktop"` strings).
-4. Nothing else: no release config or lunch change (still `lineage_pc_x86_64-cp2a-userdebug`).
+4. Login screen (optional, branch `login`): `$(call inherit-product, vendor/pc/ui/pc_login.mk)` as the
+   first line of `lineage_pc_x86_64.mk`, the local manifest entry
+   `<project path="packages/apps/PcLogin" name="android_packages_apps_PcLogin" remote="pc" revision="lineage-24.0" />`
+   and the `login` branches of `frameworks/base` (SystemUI) and `packages/apps/SetupWizard`. It is a
+   fresh install change: a device set up without HSUM keeps user 0 as a person; wipe data after
+   switching.
+5. Nothing else: no release config or lunch change (still `lineage_pc_x86_64-cp2a-userdebug`).
 
 ## Verification status
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Switching user goes through the login screen: the system tray offers "Sign out", which
+         stops the user and shows the login screen, instead of a user list. -->
+    <bool name="config_userSwitchingMustGoThroughLoginScreen">true</bool>
+    <bool name="config_allowChangeUserSwitcherEnabled">false</bool>
+    <bool name="config_enableUserSwitcherUponUserCreation">false</bool>
+    <bool name="config_hideUserSwitchingUiDuringSetup">true</bool>
+
+    <!-- Guests start fresh every time: a guest is removed when it signs out. -->
+    <bool name="config_guestUserEphemeral">true</bool>
+    <bool name="config_guestUserAllowEphemeralStateChange">false</bool>
+
+    <!-- Any admin can be removed or demoted; no user is the permanent owner. -->
+    <bool name="config_isMainUserPermanentAdmin">false</bool>
+
+    <!-- Switching shows the user's picture, animated. -->
+    <bool name="config_animateUserAvatarDuringUserSwitch">true</bool>
+
+    <!-- No swipe lock screen: a user without a PIN or password goes straight in from the login
+         screen, and the login screen itself has no lock screen. -->
+    <bool name="config_disableLockscreenByDefault">true</bool>
+    <bool name="config_supportsInsecureLockScreen">false</bool>
+
+    <!-- A signed out user's alarms wait until the user signs in again. -->
+    <bool name="config_allowAlarmsOnStoppedUsers">false</bool>
+
+    <!-- While the login screen is up, only these activities can start. -->
+    <integer name="config_hsuActivitiesAllowlistMode">1</integer>
+</resources>
