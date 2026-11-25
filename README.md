@@ -96,9 +96,13 @@ Desktop with the taskbar.
 
 Quick settings as a panel under the status area.
 
-![App list.](docs/screenshots/06-launcher.png)
+![Notifications next to the clock, with the timer chip in the same area.](docs/screenshots/05-notifications.png)
 
-App list.
+Notifications next to the clock: the app icons in the status bar open the panel, and ongoing activities like a timer sit in the same area.
+
+![App menu opened from the taskbar.](docs/screenshots/06-launcher.png)
+
+App menu opened from the taskbar.
 
 ![Calendar opened from the clock.](docs/screenshots/07-calendar.png)
 
