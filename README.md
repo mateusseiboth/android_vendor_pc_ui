@@ -84,6 +84,34 @@ names a flag declared in the tree, that the release config wiring is in place, a
 overlays carry Googlebook's values. `ANDROID_BUILD_TOP` points at the tree (default: three
 folders up).
 
+## Screenshots
+
+Taken in QEMU/KVM at 1920x1080 from the live ISO.
+
+![Desktop with the taskbar.](docs/screenshots/03-desktop.png)
+
+Desktop with the taskbar.
+
+![Quick settings as a panel under the status area.](docs/screenshots/04-quick-settings.png)
+
+Quick settings as a panel under the status area.
+
+![App list.](docs/screenshots/06-launcher.png)
+
+App list.
+
+![Calendar opened from the clock.](docs/screenshots/07-calendar.png)
+
+Calendar opened from the clock.
+
+![Screen capture, region mode.](docs/screenshots/09-screen-capture.png)
+
+Screen capture, region mode.
+
+![Keyboard shortcuts.](docs/screenshots/16-shortcuts.png)
+
+Keyboard shortcuts.
+
 ## Credits
 
 - [LineageOS](https://lineageos.org) ([GitHub](https://github.com/LineageOS)): the base system and build this is part of.
