@@ -19,10 +19,11 @@ FRAMEWORK_SPEC = {
     ("bool", "config_buttonTextAllCaps"): "false",
 }
 
-# SystemUIDesktopOverlay: desktop status bar, shade popups at the top end, smaller window header.
+# SystemUIDesktopOverlay: desktop status bar, shade popups, smaller window header. Googlebook opens
+# the notifications popup at the top end; ours opens at the top start, under the notifications
+# chip next to the clock (test_status_bar.py).
 SYSTEMUI_SPEC = {
     ("bool", "config_useDesktopStatusBar"): "true",
-    ("bool", "config_notificationShadeOnTopEnd"): "true",
     ("bool", "config_statusBarTapToExpandShade"): "true",
     ("bool", "config_qsInlinePowerMenu"): "true",
     ("bool", "config_useInfiniteGridLayoutAsDefault"): "true",

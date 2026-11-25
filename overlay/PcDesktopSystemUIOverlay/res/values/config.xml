@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Top status bar of the desktop (clock and date on the left; notifications bell and quick
-         settings chip on the right). Needs the status_bar_for_desktop and scene_container flags. -->
+    <!-- Top status bar of the desktop: clock, date and the notifications chip (icons of the
+         notifying apps) on the left; quick settings chip on the right. Needs the
+         status_bar_for_desktop and scene_container flags; the notifications chip at the start is
+         ours (pc branch of frameworks/base). -->
     <bool name="config_useDesktopStatusBar">true</bool>
+    <bool name="config_desktopStatusBarNotificationsAtStart">true</bool>
     <bool name="config_statusBarTapToExpandShade">true</bool>
     <bool name="config_enableTwoFingerSwipeDownShade">false</bool>
     <bool name="config_isStatusBarConnectedDisplayChipEnabled">false</bool>
     <bool name="config_largeScreenPrivacyIndicator">true</bool>
 
-    <!-- Notifications and quick settings are popups at the top end, under the status bar, with
-         no separate full screen shade scenes. -->
-    <bool name="config_notificationShadeOnTopEnd">true</bool>
+    <!-- Notifications and quick settings are popups under the status bar, with no separate full
+         screen shade scenes: notifications at the top start, under their chip, quick settings at
+         the top end. The notifications popup draws its own empty state (pc branch of
+         frameworks/base). -->
+    <bool name="config_notificationShadeOnTopEnd">false</bool>
+    <bool name="config_composeEmptyNotificationShade">true</bool>
     <bool name="config_includeQSAndShadeScenes">false</bool>
     <bool name="config_disableDualShadeEducationalTooltips">true</bool>
     <bool name="config_enableHideNotificationsShadeOnAllAppsKey">true</bool>

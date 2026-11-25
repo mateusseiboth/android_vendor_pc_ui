@@ -18,7 +18,7 @@ element to what implements it and what is still missing.
 | `overlay/PcLoginFrameworkOverlay` | `android`: users and the login screen (sign out through the login screen, guests, lock screen defaults, activities allowed over the login screen) |
 | `sysconfig/` | Which users get which system packages under `pc_login.mk` (the setup wizard stays off user 0) |
 | `overlay/PcDesktopFrameworkOverlay` | `android`: desktop windowing on the internal display, 40dp headers, 36dp status bar, radii, icon mask, shade panel colors, letterbox, laptop power keys |
-| `overlay/PcDesktopSystemUIOverlay` | `com.android.systemui`: desktop status bar, shade popups at the top end, quick settings, window header button sizes (WM Shell resources live in SystemUI), screen capture (toolbar, recordings folder), clock plugin allowlist |
+| `overlay/PcDesktopSystemUIOverlay` | `com.android.systemui`: desktop status bar (notifications next to the clock), notifications popup at the top start and quick settings at the top end, window header button sizes (WM Shell resources live in SystemUI), screen capture (toolbar, recordings folder), clock plugin allowlist |
 | `overlay/PcDesktopLauncherOverlay` | `com.android.launcher3`: desktop form factor, blur, popups |
 | `overlay/*/res/values/config_desktop_behaviors.xml` | Switch on the desktop behaviors of the `flags2` branches (one config each, listed in `DESIGN.md`) |
 | `overlay/PcDesktopSettingsProviderOverlay` | `com.android.providers.settings`: desktop defaults |
