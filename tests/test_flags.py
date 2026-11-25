@@ -24,13 +24,6 @@ GOOGLEBOOK_DESKTOP_FLAGS = [
 ]
 
 
-# Settings for a desktop: the top level Device category, which holds the mouse, touchpad, keyboard
-# and display pages (pointer speed and acceleration live there).
-DESKTOP_SETTINGS_FLAGS = [
-    "com.android.settings.flags.show_top_level_device_category",
-]
-
-
 class FlagValuesTest(unittest.TestCase):
 
     def test_repo_has_flag_values(self):
@@ -53,12 +46,6 @@ class FlagValuesTest(unittest.TestCase):
     def test_googlebook_desktop_flags_are_enabled(self):
         enabled = {f"{package}.{name}" for _, package, name, _, _ in tree.read_flag_values()}
         for flag in GOOGLEBOOK_DESKTOP_FLAGS:
-            with self.subTest(flag=flag):
-                self.assertIn(flag, enabled)
-
-    def test_desktop_settings_flags_are_enabled(self):
-        enabled = {f"{package}.{name}" for _, package, name, _, _ in tree.read_flag_values()}
-        for flag in DESKTOP_SETTINGS_FLAGS:
             with self.subTest(flag=flag):
                 self.assertIn(flag, enabled)
 

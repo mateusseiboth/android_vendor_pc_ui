@@ -1,7 +1,0 @@
-aconfig_values {
-    name: "aconfig-values-pc-ui-cp2a-com.android.settings.flags-all",
-    package: "com.android.settings.flags",
-    srcs: [
-        "*_flag_values.textproto",
-    ],
-}

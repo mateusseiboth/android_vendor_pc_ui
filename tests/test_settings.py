@@ -1,4 +1,4 @@
-"""Settings opens on the desktop layout, with the Device category (mouse, touchpad, keyboard)."""
+"""Settings treats the default display of a PC as a monitor."""
 
 import unittest
 
@@ -8,10 +8,6 @@ OVERLAY = tree.REPO / "overlay/PcDesktopSettingsOverlay"
 
 
 class SettingsOverlayTest(unittest.TestCase):
-
-    def test_device_category_is_shown(self):
-        values = {(kind, name): value for kind, name, value, _ in tree.read_overlay_values(OVERLAY)}
-        self.assertEqual(values.get(("bool", "config_show_top_level_device_category")), "true")
 
     def test_default_display_gets_the_monitor_settings(self):
         values = {(kind, name): value for kind, name, value, _ in tree.read_overlay_values(OVERLAY)}
