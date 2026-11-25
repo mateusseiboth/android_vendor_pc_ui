@@ -21,6 +21,10 @@ TARGET_RES_DIRS = {
         "frameworks/base/libs/WindowManager/Shell/shared/res",
         "frameworks/base/packages/SettingsLib/res",
     ],
+    "com.android.settings": [
+        "packages/apps/Settings/res",
+        "packages/apps/Settings/res-export",
+    ],
     "com.android.launcher3": [
         "packages/apps/Launcher3/res",
         "packages/apps/Launcher3/quickstep/res",
@@ -174,6 +178,7 @@ DECLARATION_DIRS = [
     "frameworks/base/libs/WindowManager/Shell/aconfig",
     "frameworks/base/packages/SystemUI/aconfig",
     "packages/apps/Launcher3/aconfig",
+    "packages/apps/Settings/aconfig",
     "frameworks/base/core/java/android/companion",
     "frameworks/base/core/java/android/content/pm",
     "frameworks/libs/systemui/aconfig",

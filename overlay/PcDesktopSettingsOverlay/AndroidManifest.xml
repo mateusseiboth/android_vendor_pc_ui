@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Settings opens on its desktop layout, with the Device category (mouse, touchpad, keyboard). -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.lineageos.pc.overlay.desktop.settings">
+
+    <overlay
+        android:isStatic="true"
+        android:priority="400"
+        android:targetPackage="com.android.settings" />
+</manifest>

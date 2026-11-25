@@ -9,6 +9,7 @@ PRODUCT_PACKAGES += \
     PcDesktopDocumentsUIOverlay \
     PcDesktopFrameworkOverlay \
     PcDesktopLauncherOverlay \
+    PcDesktopSettingsOverlay \
     PcDesktopSettingsProviderOverlay \
     PcDesktopSystemUIOverlay
 

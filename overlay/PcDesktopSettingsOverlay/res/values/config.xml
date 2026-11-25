@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The top level Device category: mouse, touchpad, keyboard and display. -->
+    <bool name="config_show_top_level_device_category">true</bool>
+</resources>

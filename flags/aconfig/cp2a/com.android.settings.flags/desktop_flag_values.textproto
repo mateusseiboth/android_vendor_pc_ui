@@ -1,0 +1,9 @@
+# Settings for a desktop: the top level Device category groups mouse (pointer speed, acceleration,
+# scrolling, primary button), touchpad, keyboard and display. Only trunk_staging enables it.
+
+flag_value {
+  package: "com.android.settings.flags"
+  name: "show_top_level_device_category"
+  state: ENABLED
+  permission: READ_ONLY
+}
