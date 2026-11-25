@@ -50,4 +50,8 @@
     <!-- One volume stream, as on a computer. -->
     <bool name="config_single_volume">true</bool>
     <bool name="config_handleVolumeKeysInWindowManager">true</bool>
+
+    <!-- Draw at the monitor's own refresh rate. The phone default caps rendering at 60 fps, so a
+         75 Hz monitor drew at 37.5 fps and a 144 Hz one at 48. -->
+    <integer name="config_defaultRefreshRate">0</integer>
 </resources>
