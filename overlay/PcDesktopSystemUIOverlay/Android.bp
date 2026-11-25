@@ -1,4 +1,7 @@
 runtime_resource_overlay {
     name: "PcDesktopSystemUIOverlay",
     product_specific: true,
+    // Left out of the PC build: Lineage's audio recorder (the desktop's screen capture records
+    // the screen).
+    overrides: ["Recorder"],
 }
