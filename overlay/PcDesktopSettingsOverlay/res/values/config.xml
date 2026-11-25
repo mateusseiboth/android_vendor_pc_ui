@@ -2,4 +2,8 @@
 <resources>
     <!-- The top level Device category: mouse, touchpad, keyboard and display. -->
     <bool name="config_show_top_level_device_category">true</bool>
+
+    <!-- Every display of a PC is a monitor: the default one also gets resolution, refresh rate and
+         display size. -->
+    <bool name="config_defaultDisplayIsConnected">true</bool>
 </resources>

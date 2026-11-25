@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Settings opens on its desktop layout, with the Device category (mouse, touchpad, keyboard). -->
+<!-- Settings opens on its desktop layout, with the Device category (mouse, touchpad, keyboard),
+     and treats the default display as a monitor. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.lineageos.pc.overlay.desktop.settings">
 
