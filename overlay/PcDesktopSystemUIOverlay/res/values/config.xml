@@ -63,6 +63,14 @@
         <item>com.android.systemui.clocks.weather</item>
     </string-array>
 
+    <!-- Heads-up notifications as cards at the top end of the screen, 20 s each (hovering
+         restarts that once), stacked up to 4, staying in the notifications list afterwards; with
+         several monitors on the display the user works on (pc branch of frameworks/base). -->
+    <bool name="config_desktopHeadsUpCards">true</bool>
+    <integer name="config_desktopHeadsUpTimeoutMs">20000</integer>
+    <integer name="config_desktopHeadsUpMaxCards">4</integer>
+    <bool name="config_shadeFollowsFocusedDisplay">true</bool>
+
     <!-- Lock screen of a desktop. -->
     <bool name="config_improveLargeScreenInteractionOnLockscreen">true</bool>
     <bool name="config_disableNotificationShelfOnKeyguard">true</bool>
