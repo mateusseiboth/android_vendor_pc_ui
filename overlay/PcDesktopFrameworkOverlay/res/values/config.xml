@@ -54,4 +54,8 @@
     <!-- Draw at the monitor's own refresh rate. The phone default caps rendering at 60 fps, so a
          75 Hz monitor drew at 37.5 fps and a 144 Hz one at 48. -->
     <integer name="config_defaultRefreshRate">0</integer>
+
+    <!-- Battery percentage in the status bar (Settings > Battery, shown when a battery is present).
+         LineageOS turns Android's option off in favor of its own, which the desktop status bar does not read. -->
+    <bool name="config_battery_percentage_setting_available">true</bool>
 </resources>
